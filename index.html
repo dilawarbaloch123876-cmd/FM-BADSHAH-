@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FAMOUS BADSHAH| 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘</title>
+    <!-- Fonts & Base -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --premium-gold: #D4AF37;
+            --premium-gold-dark: #B28B2A;
+            --premium-glow: rgba(212, 175, 55, 0.3);
+            --blue-accent: #0A84FF;
+            --blue-dark: #0070E0;
+            --green: #25D366;
+            --red: #FF453A;
+            --purple: #BF5AF2;
+            --bg-dark: #0A0A0C;
+            --bg-card-dark: #0F0F12;
+            --bg-input-dark: #1A1A1E;
+            --border-dark: #22222A;
+            --text-dark: #FFFFFF;
+            --sub-dark: #A1A1B0;
+            --shadow-premium: 0 15px 35px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,175,55,0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        /* LUXURY LIGHT MODE */
+        body.light {
+            --bg-dark: #F5F5F7;
+            --bg-card-dark: #FFFFFF;
+            --border-dark: rgba(0,0,0,0.08);
+            --text-dark: #1C1C1E;
+            --sub-dark: #6C6C70;
+            --bg-input-dark: #F2F2F7;
+        }
+
+        body.light .premium-header {
+            background: rgba(255,255,255,0.9);
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+        }
+        body.light .gold-border-card {
+            border-color: rgba(212,175,55,0.3);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+        body.light .tab-bar {
+            background: #E8E8ED;
+        }
+        body.light .hist-item, body.light .phone-item {
+            background: #F9F9FB;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 500px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* ========== PREMIUM HEADER ========== */
+        .premium-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10,10,12,0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+            padding: 12px 18px;
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* PREMIUM ANIMATED LOGO — Fixed with your custom image */
+        .luxury-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 18px;
+            background: linear-gradient(145deg, #D4AF37 0%, #9A7B2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.45);
+            position: relative;
+            overflow: hidden;
+        }
+        .luxury-logo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255,245,180,0.8) 0%, rgba(212,175,55,0) 70%);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+        /* Custom logo image - fixed sizing and fit */
+        .luxury-logo .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            border-radius: 16px;
+        }
+
+        .title-gold h1 {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .title-gold p {
+            font-size: 10px;
+            font-weight: 800;
+            color: #D4AF37;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .king-badge {
+            background: linear-gradient(110deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 100%);
+            border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #D4AF37;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+        }
+        .king-badge svg {
+            width: 11px;
+            height: 11px;
+            fill: #D4AF37;
+        }
+
+        .theme-premium-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .theme-premium-btn:active { transform: scale(0.92); background: rgba(212,175,55,0.25); }
+
+        /* MAIN PADDING */
+        main {
+            flex: 1;
+            padding: 18px 16px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* LUXURY TAB BAR */
+        .tab-bar-luxury {
+            display: flex;
+            background: #131318;
+            border-radius: 44px;
+            padding: 4px;
+            gap: 6px;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        body.light .tab-bar-luxury { background: #E5E5EA; }
+        
+        .tab-premium {
+            flex: 1;
+            padding: 10px 0;
+            border-radius: 40px;
+            border: none;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            background: transparent;
+            color: #8E8E93;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .tab-premium svg { width: 15px; height: 15px; fill: currentColor; }
+        .tab-premium.active {
+            background: linear-gradient(95deg, #D4AF37 0%, #F5DEB3 100%);
+            color: #0A0A0C;
+            box-shadow: 0 4px 12px rgba(212,175,55,0.5);
+        }
+
+        /* CARDS with gold accent */
+        .gold-border-card {
+            background: var(--bg-card-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: 28px;
+            padding: 20px;
+            transition: all 0.2s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        body.light .gold-border-card { box-shadow: 0 6px 14px rgba(0,0,0,0.03); }
+
+        .section-label-premium {
+            font-size: 11px;
+            font-weight: 800;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* TYPE TOGGLE - GOLDEN */
+        .premium-toggle {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+        .type-gold-btn {
+            flex: 1;
+            padding: 12px 6px;
+            border-radius: 20px;
+            border: 1.5px solid rgba(212,175,55,0.2);
+            background: rgba(212,175,55,0.05);
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #A1A1B0;
+            transition: all 0.2s;
+        }
+        .type-gold-btn.selected {
+            background: linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.05) 100%);
+            border-color: #D4AF37;
+            color: #D4AF37;
+            box-shadow: 0 0 8px rgba(212,175,55,0.3);
+        }
+        .type-gold-btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+        /* INPUT LUXURY */
+        .input-premium {
+            width: 100%;
+            background: var(--bg-input-dark);
+            border: 1.5px solid #2C2C32;
+            border-radius: 20px;
+            padding: 16px 18px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            outline: none;
+            font-family: 'Inter', monospace;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .input-premium:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.25);
+        }
+        .search-premium-btn {
+            width: 100%;
+            background: linear-gradient(95deg, #D4AF37 0%, #C59B27 100%);
+            border: none;
+            border-radius: 24px;
+            padding: 15px;
+            font-weight: 800;
+            font-size: 16px;
+            color: #0A0A0C;
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+        }
+        .search-premium-btn:active { transform: scale(0.97); filter: brightness(0.96); }
+
+        /* LOADING PREMIUM */
+        .loading-premium {
+            background: var(--bg-card-dark);
+            border-radius: 32px;
+            padding: 40px 20px;
+            text-align: center;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        .gold-spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px;
+            border: 3px solid rgba(212,175,55,0.2);
+            border-top: 3px solid #D4AF37;
+            border-radius: 50%;
+            animation: spin 0.9s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* RESULT CARD PREMIUM */
+        .premium-result {
+            background: var(--bg-card-dark);
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.3);
+            box-shadow: var(--shadow-premium);
+        }
+        .result-header-gold {
+            background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(0,0,0,0.2) 100%);
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .result-header-gold svg { fill: #D4AF37; width: 18px; height: 18px; }
+        .result-header-gold span { font-weight: 800; color: #D4AF37; letter-spacing: 0.8px; }
+
+        .info-row-premium {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .icon-gold-bg {
+            width: 48px;
+            height: 48px;
+            background: rgba(212,175,55,0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        .icon-gold-bg svg { width: 22px; height: 22px; fill: #D4AF37; }
+        .detail-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #D4AF37;
+            text-transform: uppercase;
+        }
+        .detail-value {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .phone-item-gold {
+            background: rgba(212,175,55,0.05);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 20px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .call-btn-gold {
+            background: #25D366;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+        }
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212,175,55,0.12);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #D4AF37;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        /* HISTORY LUXURY */
+        .hist-item-gold {
+            background: var(--bg-card-dark);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 22px;
+            padding: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .hist-item-gold:active { transform: scale(0.97); background: rgba(212,175,55,0.05); }
+
+        /* FOOTER about */
+        .premium-footer {
+            margin-top: 20px;
+            padding: 16px 16px 26px;
+            text-align: center;
+            border-top: 1px solid rgba(212,175,55,0.15);
+        }
+        .about-text {
+            font-size: 10px;
+            font-weight: 600;
+            color: #8E8E93;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .signature {
+            font-size: 12px;
+            font-weight: 800;
+            background: linear-gradient(120deg, #D4AF37, #FCE181);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .divider-gold {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            width: 60px;
+            margin: 12px auto;
+        }
+
+        @keyframes slideUpGold {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-up { animation: slideUpGold 0.4s ease-out; }
+
+        #view-search { display: flex; flex-direction: column; gap: 18px; }
+        #view-history { display: none; flex-direction: column; gap: 12px; }
+        #view-history.active { display: flex; }
+    </style>
+</head>
+<body>
+<div class="app-container">
+
+    <!-- PREMIUM HEADER with FAMOUS BADSHAH branding + custom logo image (fixed) -->
+    <header class="premium-header">
+        <div class="header-flex">
+            <div class="logo-brand">
+                <div class="luxury-logo">
+                    <!-- Fixed image: direct link from your Postimages upload -->
+                    <img class="logo-img" src="https://i.postimg.cc/xXwrBwtn/108a3189038ade25c8c3456f6b68367a.png" alt="FM ABDULLAH Signature Emblem" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23D4AF37%22%3E%3Cpath%20d%3D%22M12%202L15.09%208.26L22%209.27L17%2014.14L18.18%2021.02L12%2017.77L5.82%2021.02L7%2014.14L2%209.27L8.91%208.26L12%202z%22%2F%3E%3C%2Fsvg%3E';">
+                </div>
+                <div class="title-gold">
+                    <h1>FAMOUS BADSHAH</h1>
+                    <p>PREMIUM DATABASE ACCESS</p>
+                </div>
+            </div>
+            <button class="theme-premium-btn" id="themeToggleBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+        <div style="margin-top: 8px;">
+            <span class="king-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                𝗞𝗜𝗡𝗚 𝗢𝗪𝗡𝗘𝗥 : 𝗙AMOUS BADSHAH 
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <!-- PREMIUM TAB BAR -->
+        <div class="tab-bar-luxury">
+            <button class="tab-premium active" id="tabSearchBtn" onclick="switchTab('search')">
+                <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                SEARCH
+            </button>
+            <button class="tab-premium" id="tabHistoryBtn" onclick="switchTab('history')">
+                <svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18z"/></svg>
+                HISTORY
+            </button>
+        </div>
+
+        <!-- SEARCH VIEW -->
+        <div id="view-search">
+            <div class="gold-border-card">
+                <div class="section-label-premium">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                    LOOKUP TYPE
+                </div>
+                <div class="premium-toggle">
+                    <button class="type-gold-btn selected" id="typeSimBtn" onclick="setType('sim')">
+                        <svg viewBox="0 0 24 24"><path d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                        SIM CARD
+                    </button>
+                    <button class="type-gold-btn" id="typeCnicBtn" onclick="setType('cnic')">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                        CNIC
+                    </button>
+                </div>
+
+                <input id="lookupInput" class="input-premium" type="tel" placeholder="03XXXXXXXXX" maxlength="11" autocomplete="off">
+                <button class="search-premium-btn" onclick="handleSearch()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A0A0C"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></svg>
+                    SCAN DATABASE
+                </button>
+            </div>
+            <div id="resultsContainer"></div>
+        </div>
+
+        <!-- HISTORY VIEW -->
+        <div id="view-history">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 4px;">
+                <span style="font-weight:800; color:#D4AF37; font-size:12px;">RECENT TRACKS</span>
+                <button id="clearHistoryBtn" style="background:none; border:none; color:#D4AF37; font-weight:800; font-size:12px;" onclick="clearHistory()">CLEAR ALL</button>
+            </div>
+            <div id="historyList"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER with ABOUT -->
+    <footer class="premium-footer">
+        <div class="about-text">🔒 ENCRYPTED DATABASE NETWORK</div>
+        <div class="signature">FAMOUS BADSHAH• PREMIUM DB</div>
+        <div class="divider-gold"></div>
+        <div style="font-size: 9px; color: #6C6C70; margin-top: 8px;">⚡ HIGH SPEED SIM/CNIC VERIFICATION | 24/7 SECURE</div>
+    </footer>
+</div>
+
+<script>
+    // ===================== CONFIG =====================
+    const API_URL = "https://sim-api.fakcloud.tech/";
+    let currentType = "sim";
+
+    // THEME SYSTEM (LUXURY)
+    function initTheme() {
+        const saved = localStorage.getItem('fm_theme') || 'dark';
+        applyTheme(saved);
+    }
+    function applyTheme(theme) {
+        if (theme === 'light') document.body.classList.add('light');
+        else document.body.classList.remove('light');
+        localStorage.setItem('fm_theme', theme);
+        const themeSvg = document.querySelector('#themeToggleBtn svg');
+        if (theme === 'light') {
+            themeSvg.innerHTML = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5l-1 3h2l-1-3zm0 17l1-3h-2l1 3zM4.22 5.64l-1.42 1.42 2.12 2.12 1.42-1.42-2.12-2.12zM19.78 18.36l1.42-1.42-2.12-2.12-1.42 1.42 2.12 2.12zM1 11h3v2H1v-2zm20 0h-3v2h3v-2zM4.22 18.36l2.12-2.12-1.42-1.42-2.12 2.12 1.42 1.42zM19.78 5.64l-2.12 2.12 1.42 1.42 2.12-2.12-1.42-1.42z"/>';
+        } else {
+            themeSvg.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        }
+    }
+    function toggleTheme() {
+        const isLight = document.body.classList.contains('light');
+        applyTheme(isLight ? 'dark' : 'light');
+    }
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+    initTheme();
+
+    // TABS
+    window.switchTab = function(tab) {
+        const searchDiv = document.getElementById('view-search');
+        const historyDiv = document.getElementById('view-history');
+        const tabSearch = document.getElementById('tabSearchBtn');
+        const tabHist = document.getElementById('tabHistoryBtn');
+        if (tab === 'search') {
+            searchDiv.style.display = 'flex';
+            historyDiv.classList.remove('active');
+            tabSearch.classList.add('active');
+            tabHist.classList.remove('active');
+        } else {
+            searchDiv.style.display = 'none';
+            historyDiv.classList.add('active');
+            tabHist.classList.add('active');
+            tabSearch.classList.remove('active');
+            renderHistory();
+        }
+    }
+
+    // TYPE SELECTION
+    window.setType = function(type) {
+        currentType = type;
+        const simBtn = document.getElementById('typeSimBtn');
+        const cnicBtn = document.getElementById('typeCnicBtn');
+        const inputField = document.getElementById('lookupInput');
+        if (type === 'sim') {
+            simBtn.classList.add('selected');
+            cnicBtn.classList.remove('selected');
+            inputField.placeholder = "03XXXXXXXXX";
+            inputField.maxLength = 11;
+        } else {
+            cnicBtn.classList.add('selected');
+            simBtn.classList.remove('selected');
+            inputField.placeholder = "1234512345671";
+            inputField.maxLength = 13;
+        }
+        document.getElementById('resultsContainer').innerHTML = '';
+    }
+
+    // NORMALIZATION
+    function normalizeInput(raw, type) {
+        let cleaned = raw.replace(/\D/g, '');
+        if (type === 'sim') {
+            if (cleaned.length === 11 && cleaned.startsWith('0')) cleaned = cleaned.substring(1);
+            if (cleaned.length === 10 && cleaned.startsWith('3')) return cleaned;
+        } else {
+            if (cleaned.length === 13) return cleaned;
+        }
+        return null;
+    }
+
+    async function handleSearch() {
+        const raw = document.getElementById('lookupInput').value.trim();
+        if (!raw) { showError('Enter SIM/CNIC to proceed'); return; }
+        const normalized = normalizeInput(raw, currentType);
+        if (!normalized) {
+            showError(currentType === 'sim' ? 'Invalid SIM (must be 03XXXXXXXXX)' : 'Invalid CNIC (13 digits required)');
+            return;
+        }
+        await performLookup(normalized);
+    }
+
+    async function performLookup(query) {
+        showLoading();
+        try {
+            const res = await fetch(`${API_URL}?q=${encodeURIComponent(query)}`);
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            if (data.success && data.data && data.data.records && data.data.records.length > 0) {
+                showResult(data.data.records);
+                addHistory(query, data.data.records[0].full_name || 'Profile');
+            } else {
+                showError('No records found in premium database.');
+            }
+        } catch (err) {
+            showError('Network error | Server unreachable');
+        }
+    }
+
+    function showLoading() {
+        document.getElementById('resultsContainer').innerHTML = `
+        <div class="loading-premium slide-up">
+            <div class="gold-spinner"></div>
+            <p style="color:#D4AF37; font-weight:700;">ACCESSING ENCRYPTED NETWORK</p>
+            <p style="font-size:12px; margin-top:8px;">fetching credentials...</p>
+        </div>`;
+    }
+
+    function showError(msg) {
+        document.getElementById('resultsContainer').innerHTML = `
+        <div class="gold-border-card slide-up" style="text-align:center; padding:32px;">
+            <div style="background:rgba(255,69,58,0.1); width:55px; height:55px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;">
+                <svg width="24" height="24" fill="#FF453A" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            </div>
+            <p style="font-weight:800; color:#FF453A;">NOT FOUND</p>
+            <p style="font-size:13px; color:var(--sub-dark);">${escapeHtml(msg)}</p>
+        </div>`;
+    }
+
+    function showResult(records) {
+        const p = records[0];
+        const uniqueNums = [...new Set(records.map(r => r.phone).filter(Boolean))];
+        const addr = p.address || '';
+        const mapsUrl = addr ? `https://maps.google.com/?q=${encodeURIComponent(addr)}` : null;
+        let phonesHtml = '';
+        uniqueNums.forEach(num => {
+            phonesHtml += `
+            <div class="phone-item-gold">
+                <div><span class="detail-label">REGISTERED</span><div class="detail-value" style="font-size:16px;">${escapeHtml(num)}</div></div>
+                <a href="tel:${escapeHtml(num)}" class="call-btn-gold" style="text-decoration:none;"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+            </div>`;
+        });
+        const resultHtml = `
+        <div class="premium-result slide-up">
+            <div class="result-header-gold">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                <span>VERIFIED PROFILE</span>
+            </div>
+            <div style="padding:20px;">
+                <div class="info-row-premium">
+                    <div class="icon-gold-bg"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                    <div><div class="detail-label">FULL NAME</div><div class="detail-value">${escapeHtml(p.full_name || 'N/A')}</div></div>
+                </div>
+                <div class="info-row-premium">
+                    <div class="icon-gold-bg"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6z"/></svg></div>
+                    <div><div class="detail-label">CNIC NUMBER</div><div class="detail-value">${escapeHtml(p.cnic || 'N/A')}</div></div>
+                </div>
+                <div class="info-row-premium">
+                    <div class="icon-gold-bg"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div>
+                    <div><div class="detail-label">ADDRESS</div><div class="detail-value" style="font-size:14px;">${escapeHtml(addr || 'N/A')}</div>${mapsUrl ? `<a href="${mapsUrl}" target="_blank" class="map-link"><svg width="10" viewBox="0 0 24 24" fill="#D4AF37"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg> MAP VIEW</a>` : ''}</div>
+                </div>
+                <div style="margin-top: 16px;"><div class="detail-label">📞 LINKED NUMBERS (${uniqueNums.length})</div>${phonesHtml}</div>
+            </div>
+        </div>`;
+        document.getElementById('resultsContainer').innerHTML = resultHtml;
+    }
+
+    // HISTORY MANAGEMENT
+    function getHistory() { return JSON.parse(localStorage.getItem('fm_history') || '[]'); }
+    function saveHistory(arr) { localStorage.setItem('fm_history', JSON.stringify(arr)); }
+    function addHistory(query, name) {
+        let arr = getHistory();
+        arr = arr.filter(x => x.query !== query);
+        arr.unshift({ query, name, ts: Date.now() });
+        if (arr.length > 20) arr.pop();
+        saveHistory(arr);
+    }
+    window.clearHistory = function() { saveHistory([]); renderHistory(); }
+    function renderHistory() {
+        const container = document.getElementById('historyList');
+        const arr = getHistory();
+        if (!arr.length) {
+            container.innerHTML = `<div class="gold-border-card" style="text-align:center; padding:40px;"><svg width="40" fill="#D4AF37" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18z"/></svg><p style="margin-top:10px;">Empty history</p></div>`;
+            return;
+        }
+        container.innerHTML = arr.map(item => `
+        <div class="hist-item-gold" onclick="fillSearch('${escapeHtml(item.query)}')">
+            <div style="display:flex; gap:12px; align-items:center;"><div style="background:rgba(212,175,55,0.1); width:38px; height:38px; border-radius:30px; display:flex; align-items:center; justify-content:center;"><svg width="14" fill="#D4AF37" viewBox="0 0 24 24"><path d="${item.query.length === 13 && !item.query.startsWith('0') ? 'M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2z' : 'M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99z'}"/></svg></div><div><strong style="color:var(--text-dark);">${escapeHtml(item.query)}</strong><p style="font-size:11px; color:#D4AF37;">${escapeHtml(item.name)}</p></div></div>
+            <svg width="14" fill="#8E8E93" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </div>`).join('');
+    }
+    window.fillSearch = function(query) {
+        document.getElementById('lookupInput').value = query;
+        const isCnic = query.length === 13 && !query.startsWith('0');
+        setType(isCnic ? 'cnic' : 'sim');
+        switchTab('search');
+        handleSearch();
+    };
+    document.getElementById('lookupInput').addEventListener('keydown', (e) => { if(e.key === 'Enter') handleSearch(); });
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+    
+    // Initialize
+    setType('sim');
+    renderHistory();
+    window.handleSearch = handleSearch;
+</script>
+</body>
+</html>
